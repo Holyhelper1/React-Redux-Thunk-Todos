@@ -1,14 +1,24 @@
 import styles from "./todos-fields.module.css";
 import { Field } from "./Field";
+import { useSelector, useDispatch } from "react-redux";
+import { loadTodos } from "../actions/async-actions";
+import { useEffect } from "react";
 
 export const Fields = ({
-  tasks,
+
   requestDeleteTask,
   editTodos,
   handleChange,
   search,
   handleSort,
 }) => {
+  const dispatch = useDispatch();
+const tasks = useSelector((state) => state.tasks.tasks);
+
+  useEffect(() => {
+    dispatch(loadTodos())
+  } , [dispatch])
+
   return (
     <>
       <div>

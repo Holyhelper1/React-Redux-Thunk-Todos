@@ -3,22 +3,32 @@
     {
       "title": "Ну попробуем добавить текст 52512",
       "author": "Александр",
-      "id": 3
+      "id": 1
     },
     {
       "title": "1",
       "author": "Alex 2",
-      "id": 7
+      "id": 2
     },
     {
       "title": "Пробуем переделать с react-redux и redux-thunk",
       "author": "Саша",
-      "id": 8
+      "id": 3
     },
     {
       "title": "Making React-Redux",
       "author": "John",
-      "id": 9
+      "id": 4
+    },
+    {
+      "title": "5 задача",
+      "author": "John",
+      "id": 5
+    },
+    {
+      "title": "Новая заметка",
+      "author": " не скажу",
+      "id": 6
     }
   ]
 }
