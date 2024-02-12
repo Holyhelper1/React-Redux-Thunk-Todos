@@ -27,8 +27,10 @@ export const App = () => {
    const search = useSelector((state) => state.tasks.search);
    const sort = useSelector((state) => state.tasks.sort);
    const originalTasks = useSelector((state) => state.tasks.originalTasks);
+   console.log(search, 'search');
 
   const debounceValue = useDebounce(search, 2000);
+  console.log(debounceValue, 'debounceValue');
 
   useEffect(() => {
     dispatch(setIsLoading(true));
@@ -94,6 +96,7 @@ export const App = () => {
 
   const handleChange = (event) => {
     dispatch(setSearch(event.target.value));
+    console.log(dispatch(setSearch), 'setSearch' );
   };
 
   const handleSort = () => {
@@ -117,7 +120,6 @@ export const App = () => {
 
   return (
     <div className={styles.app}>
-      <h1>Hallo, React</h1>
       {isLoading ? (
         <h1 className={styles.todosLoader}>Loading...</h1>
       ) : (

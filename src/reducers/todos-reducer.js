@@ -1,7 +1,7 @@
 import { ACTION_TYPE } from "../actions/actions";
 const todosInitialState = {
   tasks: [],
-  sort: "",
+  sort: "asc",
   search: "",
   isLoading: false,
   isDeleting: false,
@@ -15,13 +15,13 @@ export const todosReducer = (state = todosInitialState, { type, payload }) => {
         ...state,
         tasks: payload,
       };
-      case 'LOAD_TODOS':
-        return {
-          ...state,
-          tasks: payload,
-          originalTasks: payload,
-        };
-       
+    case "LOAD_TODOS":
+      return {
+        ...state,
+        tasks: payload,
+        originalTasks: payload,
+      };
+
     case ACTION_TYPE.SET_SORT:
       return {
         ...state,
