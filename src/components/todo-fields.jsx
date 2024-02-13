@@ -14,6 +14,7 @@ export const Fields = ({
 }) => {
   const dispatch = useDispatch();
 const tasks = useSelector((state) => state.tasks.tasks);
+console.log(search, 'search fields');
 
   useEffect(() => {
     dispatch(loadTodos())

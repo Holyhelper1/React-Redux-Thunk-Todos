@@ -21,7 +21,36 @@ export const todosReducer = (state = todosInitialState, { type, payload }) => {
         tasks: payload,
         originalTasks: payload,
       };
-
+    case "DELETE_TODOS":
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== payload),
+      };
+    case "EDIT_TODOS":
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === payload.id ? payload : task
+        ),
+      };
+    case "ADD_NEW_TASK":
+      return {
+        ...state,
+        tasks: [...state.tasks, payload],
+      };
+    case "SORT_TASKS":
+      return {
+        ...state,
+        tasks: [...state.tasks].sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        }),
+      };
     case ACTION_TYPE.SET_SORT:
       return {
         ...state,
@@ -36,11 +65,6 @@ export const todosReducer = (state = todosInitialState, { type, payload }) => {
       return {
         ...state,
         isLoading: payload,
-      };
-    case ACTION_TYPE.SET_IS_DELETING:
-      return {
-        ...state,
-        isDeleting: payload,
       };
     case ACTION_TYPE.SET_ORIGINAL_TASKS:
       return {
